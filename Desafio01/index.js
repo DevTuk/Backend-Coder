@@ -48,8 +48,10 @@ class ProductManager {
       console.log(`“Not found” El producto con el id ${id} no existe`);
       return;
     }
+    else {
     console.log(`El producto con el id ${id} fue encontrado`);
     return producto;
+    }
   }
 }
 const productos = new ProductManager();
