@@ -61,7 +61,3 @@ productos.addProduct('titulo2', 'descripcion2', 450, 'imagen2', 'abc124', 5);
 productos.addProduct('titulo3', 'descripcion3', 450, 'imagen3', 'abc125', 1);
 console.log(productos.getProducts());
 productos.getProductById(6);
-<<<<<<< HEAD
-=======
-
->>>>>>> 5563868d621369a83db81abf262f7af9376bff9c
