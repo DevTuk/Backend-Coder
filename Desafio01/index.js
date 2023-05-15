@@ -19,21 +19,19 @@ class ProductManager {
       console.log(
         `Todos los campos son obligatorios en el producto ${title} que estas intentando ingresar`
       );
-    } else {
-      const producto = {
-        id: this.nuevoID++,
-        title,
-        description,
-        price,
-        thumbnail,
-        code,
-        stock,
-      };
-      this.products.push(producto);
-      {
-        console.log(`el producto ${producto.title} fue agregado correctamente`);
-      }
+      return;
     }
+    const producto = {
+      id: this.nuevoID++,
+      title,
+      description,
+      price,
+      thumbnail,
+      code,
+      stock,
+    };
+    this.products.push(producto);
+    console.log(`el producto ${producto.title} fue agregado correctamente`);
   }
   getProduct() {
     return this.products;
@@ -59,3 +57,4 @@ console.log(producto.getProduct());
 producto.addProduct('titulo3', 'descripcion1', 200, 'imagen1', 'code3', 2);
 console.log(producto.getProduct());
 producto.getProductById(5);
+
