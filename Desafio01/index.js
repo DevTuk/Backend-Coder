@@ -52,8 +52,10 @@ class ProductManager {
 }
 
 const producto = new ProductManager();
+console.log(producto.getProduct());
 producto.addProduct('titulo1', 'descripcion1', 200, 'imagen1', 'code1', 2);
-producto.addProduct('titulo2', 'descripcion1', 200, 'imagen1', 'code2', 2);
+producto.addProduct('titulo1', 'descripcion1', 200, 'imagen1', 'code1', 2);
+console.log(producto.getProduct());
 producto.addProduct('titulo3', 'descripcion1', 200, 'imagen1', 'code3', 2);
 console.log(producto.getProduct());
 producto.getProductById(5);
