@@ -1,4 +1,3 @@
-import { AsyncResource } from 'async_hooks';
 import { promises as fs } from 'fs';
 
 class ProductManager {
@@ -40,7 +39,7 @@ class ProductManager {
   };
   updateProduct = async (id) => {};
 
-  deleteProduct = async (id) => {};
+  deleteProduct = async () => {};
 }
 
 const productos = new ProductManager();
