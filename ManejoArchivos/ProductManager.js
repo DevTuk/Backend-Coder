@@ -39,7 +39,7 @@ class ProductManager {
   };
   updateProduct = async (id) => {};
 
-  deleteProduct = async () => {};
+  deleteProduct = async (id) => {};
 }
 
 const productos = new ProductManager();
