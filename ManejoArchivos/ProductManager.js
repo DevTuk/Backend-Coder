@@ -36,13 +36,16 @@ class ProductManager {
         id: this.newId++,
       };
       this.products.push(newProduct);
+      //si esta correcto pusheamos el archivo
       await fs.writeFile(this.path, JSON.stringify(this.products));
+      //escribimos nuestros productos en la base de datos
     } catch (error) {
       console.log(error);
     }
   };
   responseProduct = async () => {
     try {
+      //creamos una función de respuesta para reutilizar en el código
       let response = await fs.readFile(this.path, 'utf-8');
       return JSON.parse(response);
     } catch (error) {
@@ -51,6 +54,7 @@ class ProductManager {
   };
   getProducts = async () => {
     try {
+      //llamamos a todos nuestros productos
       let productRes = await this.responseProduct();
       return console.log(productRes);
     } catch (error) {
@@ -60,7 +64,9 @@ class ProductManager {
 
   getProductsById = async (id) => {
     try {
+      //llamamos a nustra lista productos
       let idProduct = await this.responseProduct();
+      //llamamos a un producto por el ID indicado
       let productFilter = idProduct.find((product) => product.id === id);
       console.log(productFilter);
     } catch (error) {
@@ -69,7 +75,7 @@ class ProductManager {
   };
   updateProduct = async (id, title, description, price, image, code, stock) => {
     try {
-      //llamamos a nustros productos
+      //llamamos a nustra lista productos
       let toUpdateProduct = await this.responseProduct();
       //Verificamos que el ID exista en nuestros productos.
       let productUpdate = toUpdateProduct.findIndex(
@@ -120,12 +126,13 @@ class ProductManager {
 
   deleteProduct = async (id) => {
     try {
-      //traemos los productos
+      //llamamos a nustra lista productos
       let productToDelete = await this.responseProduct();
       //buscamos el producto por id para eliminar
       let productDelete = productToDelete.findIndex(
         (product) => product.id === id
       );
+      //verificamos que el ID exista en nuestros productos.
       if (productDelete !== -1) {
         productToDelete.splice(productDelete, 1);
         //eliminamos el producto del array, "productToDelete" es el indice del producto a eliminar
