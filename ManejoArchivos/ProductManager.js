@@ -101,7 +101,7 @@ class ProductManager {
         !stock
       ) {
         //verificamos que no queden campos vaciós al actualizar el producto sino arrojamos un error
-        throw new Error('No se puede actualizar el producto con campos vacios');
+        console.log('No se puede actualizar el producto con campos vacios');
       }
       //Verificamos que el ID en el indice 0 coincida con el ingresado.
       if (productUpdate !== -1) {
