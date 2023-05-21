@@ -120,13 +120,18 @@ class ProductManager {
 
   deleteProduct = async (id) => {
     try {
+      //traemos los productos
       let productToDelete = await this.responseProduct();
+      //buscamos el producto por id para eliminar
       let productDelete = productToDelete.findIndex(
         (product) => product.id === id
       );
       if (productDelete !== -1) {
         productToDelete.splice(productDelete, 1);
+        //eliminamos el producto del array, "productToDelete" es el indice del producto a eliminar
+        //el 1 es la cantidad de productos a eliminar desde el indice de "productToDelete".
         await fs.writeFile(this.path, JSON.stringify(productToDelete));
+        //borramos el producto encontrado por el id y actualizamos nuestro archivo de productos
         console.log(`Producto eliminado`);
       } else {
         console.log(`No existe el producto con el ID ingresado`);
@@ -141,7 +146,7 @@ const productos = new ProductManager();
 // productos.addProduct('titulo2', 'descripcion2', 300, 'imagen2', 'abc124', 6);
 // productos.addProduct('titulo3', 'descripcion3', 700, 'imagen3', 'abc125', 2);
 //productos.getProducts();
-productos.getProductsById(2);
+//productos.getProductsById(2);
 //productos.updateProduct(
 //   2,
 //   'titulo1updated',
@@ -151,4 +156,4 @@ productos.getProductsById(2);
 //   'abc127',
 //   200
 // );
-//productos.deleteProduct(3);
+//productos.deleteProduct(1);
